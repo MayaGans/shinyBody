@@ -1,4 +1,4 @@
-# Example of buttonGroup shinybody Shiny Input
+# Example of buttonGroup shinyBody Shiny Input
 library(shiny)
 
 button_choices <- c(
@@ -18,7 +18,7 @@ two_col <- function(a, b) {
 
 ui <- function(request) {
     fluidPage(
-        titlePanel("shinybody Button Group"),
+        titlePanel("shinyBody Button Group"),
         id = "button_group_page",
 
         # tags$h4("A regular button"),

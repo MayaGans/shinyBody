@@ -1,33 +1,18 @@
-$(document).on("click", ".shinyBody-btn-group > .btn", function(evt) {
-  // button that was clicked
-  var el = $(evt.target).closest('button');
+$(document).on("click", ".shinyBody-btn-group > .part", function(evt) {
 
-  // toggle state of clicked button
-  if (el.hasClass('active')) {
-    el.removeClass('active');
-  } else {
-    el.addClass('active');
-    if (!parseInt(el.parent().attr('data-multiple'))) {
-      // deactive other buttons if only one active button allowed
-      el.siblings().removeClass('active');
-    }
-  }
+ var el = $(evt.target).closest('.part');
 
-  // remove focus from button
-  el.blur();
-
-  // Raise event to signal value has changed
-  el.trigger("change");
 });
 
-var shinyBodyGroupBinding = new Shiny.InputBinding();
-$.extend(shinyBodyGroupBinding, {
+var shinyBodyBinding = new Shiny.InputBinding();
+$.extend(shinyBodyBinding, {
   find: function find(scope) {
     return $(scope).find(".shinyBody-btn-group[id]");
   },
   //getType: (el) => "shinyBody.buttonGroup",
+  // need to get the selected .part not sure this is the correct js here
   getValue: function getValue(el) {
-    var value = $(el).find(".active").map(function () {
+    var value = $(el).find(".part").map(function () {
       return this.value;
     }).get();
 
@@ -54,16 +39,16 @@ $.extend(shinyBodyGroupBinding, {
     $el.trigger("change");
   },
   subscribe: function(el, callback) {
-    $(el).on("change.shinyBodyGroupBinding", function(e) {
+    $(el).on("change.shinyBodyBinding", function(e) {
       callback();
     });
   },
   unsubscribe: function(el) {
-    $(el).off(".shinyBodyGroupBinding");
+    $(el).off(".shinyBodyBinding");
   },
   receiveMessage: function receiveMessage(el, msg) {
     if (msg.value) {
-      shinyBodyGroupBinding.setValue(el, msg.value);
+      shinyBodyBinding.setValue(el, msg.value);
     }
   }
 });
