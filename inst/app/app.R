@@ -21,7 +21,11 @@ ui <- fluidPage(
   tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")),
 
   sidebarPanel(
+    # problem1: we are rending the svg in the server
+    # we need to render this in the ui for the bodyInput
+    # but I'm not sure how to set a timeout on it...
     div(class="human-body", id="human-body", uiOutput("svgout")),
+    # we can probably add this in the css bundle
     div(style="height:200px;"),
     verbatimTextOutput("debug")
   ),
@@ -29,7 +33,7 @@ ui <- fluidPage(
   mainPanel(
   ),
 
-
+  # this becomes the js in the bundle too
   tags$script(src = "script.js")
 
 )
@@ -39,8 +43,11 @@ server <- function(input, output, session) {
 
   output$debug <- renderPrint(input$human_body)
 
+  # not sure how sending messages work
+  # pass this as a list to js in the widget then what....
  session$sendCustomMessage("body_data", human_data)
 
+ # try to put this in the ui....
   output$svgout <- renderUI({
     HTML(
       "<svg class='part head' data-position='head' id='head' class='head' xmlns='http://www.w3.org/2000/svg' width='56.594' height='95.031' viewBox='0 0 56.594 95.031'>
