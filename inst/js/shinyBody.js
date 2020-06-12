@@ -70,4 +70,4 @@ $.extend(shinyBodyBinding, {
   }
 });
 
-Shiny.inputBindings.register(shinyBodyBinding, 'shinyBody.buttonGroup');
+Shiny.inputBindings.register(shinyBodyBinding, 'shinyBody.bodyInput');

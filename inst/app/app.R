@@ -25,7 +25,6 @@ ui <- fluidPage(
     # we need to render this in the ui for the bodyInput
     # but I'm not sure how to set a timeout on it...
     div(class="human-body", id="human-body", uiOutput("svgout")),
-    # we can probably add this in the css bundle
     div(style="height:200px;"),
     verbatimTextOutput("debug")
   ),
