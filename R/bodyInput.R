@@ -57,6 +57,7 @@ bodyInput <- function(
   # if categorical
   # or numeric
   # maybe even let the user pass in their own color palettes somehow
+  # also do I need to do anything when data is null?
   data <- tidyr::tibble(
     body_part = c("head","left-shoulder","right-shoulder","left-arm","right-arm",
                   "left-hand","right-hand","chest","stomach","left-leg",
