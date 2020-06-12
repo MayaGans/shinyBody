@@ -1,4 +1,4 @@
-# Example of buttonGroup shinyBody Shiny Input
+# Example of shinyBody Shiny Input
 library(shiny)
 
 ui <- function() {
@@ -9,6 +9,7 @@ ui <- function() {
 }
 
 server <- function(input, output) {
+    # this should print the body part...
     output$debug <- renderText(input$human)
 }
 
