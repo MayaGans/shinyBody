@@ -1,3 +1,8 @@
+// this is Garrick Aden-Buie's code
+// Using as a reference to build my own widget
+// https://github.com/gadenbuie/shinyThings
+
+
 $(document).on("click", ".shinyBody-btn-group > .btn", function(evt) {
   // button that was clicked
   var el = $(evt.target).closest('button');

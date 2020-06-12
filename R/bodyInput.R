@@ -1,3 +1,25 @@
+#' An SVG Human Body Input
+#'
+#' This input operates like a [shiny::radioButtons()] where you can select one of the body parts!
+#'
+#' @param inputId The input id
+#' @param data a vector of numbers to pass to the input to color body parts by.
+#' Can be numeric or categorical
+#'
+#'   For example
+#'
+#'   ```
+#'   bodyInput(
+#'     inputId = "human"
+#'   )
+#'   ```
+#'
+#' @return The value returned by the input to the Shiny server is either `NULL`
+#'   when no body part is select or a character string containing
+#'   the selected body part
+#'
+#' @export
+#'
 bodyInput <- function(
   inputId,
   ## this will eventually be a vector to color the body parts by

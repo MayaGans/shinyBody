@@ -1,3 +1,7 @@
+# this is Garrick Aden-Buie's code
+# Using as a reference to build my own widget
+# https://github.com/gadenbuie/shinyThings
+
 #' A Bootstrap Button Group Input
 #'
 #' This input operates like a [shiny::radioButtons()] or
