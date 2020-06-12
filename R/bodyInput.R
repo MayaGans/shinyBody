@@ -2,8 +2,12 @@
 #'
 #' This input operates like a [shiny::radioButtons()] where you can select one of the body parts!
 #'
+#' @import shiny
+#'
 #' @param inputId The input id
 #' @param data a vector of numbers to pass to the input to color body parts by.
+#' @param ... Passed to [htmltools::div()]
+#'
 #' Can be numeric or categorical
 #'
 #'   For example

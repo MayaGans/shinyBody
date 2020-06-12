@@ -9,7 +9,6 @@ ui <- function() {
 }
 
 server <- function(input, output) {
-    # this should print the body part...
     output$debug <- renderText(input$human)
 }
 

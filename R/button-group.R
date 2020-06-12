@@ -7,8 +7,6 @@
 #' This input operates like a [shiny::radioButtons()] or
 #' [shiny::checkboxGroupInput()] input.
 #'
-#' @importFrom rlang %||%
-#'
 #' @param inputId The input id
 #' @param choices A vector of choices for the button group. The names will be
 #'   used for button labels and the value are returned by the input. If an

@@ -9,7 +9,10 @@ bodyInput(inputId, data = NULL, ...)
 \arguments{
 \item{inputId}{The input id}
 
-\item{data}{a vector of numbers to pass to the input to color body parts by.
+\item{data}{a vector of numbers to pass to the input to color body parts by.}
+
+\item{...}{Passed to [htmltools::div()]
+
 Can be numeric or categorical
 
   For example
