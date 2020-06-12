@@ -1,18 +1,11 @@
-
-// in the example I use the static id
-// we need to set the idea to el
-// then use this to create the binding
-
-// $('#human-body').on('click', '.part', (ev) => {
-//  console.log({id: '#human_body', value: ev.target.id})
-//   Shiny.setInputValue('human_body', ev.target.id)
-// })
-
-$(document).on("click", ".shinyBody-btn-group > .part", function(evt) {
+// when you click a class .part inside a .human-body....
+// but what if you have multiple bodyInputs on a single page?
+$(document).on("click", ".human-body > .part", function(evt) {
   // stole the closest function from the group button
   // do I need that here?
   // could just be as simple as $(evt.target) ??
  var el = $(evt.target).closest('.part');
+ console.log(el)
 });
 
 
@@ -24,6 +17,7 @@ $.extend(shinyBodyBinding, {
   //getType: (el) => "shinyBody.buttonGroup",
   getValue: function getValue(el) {
     // is .part right here? I _think_ I want to find the closest .part?
+    // ps have no idea whats actually happening here
     var value = $(el).find(".part").map(function () {
       return this.value;
     }).get();
