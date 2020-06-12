@@ -9,19 +9,25 @@ bodyInput(inputId, data = NULL, ...)
 \arguments{
 \item{inputId}{The input id}
 
-\item{data}{a vector of numbers to pass to the input to color body parts by.}
+\item{data}{a vector of 13 numbers to pass to the input to color body parts by:
 
-\item{...}{Passed to [htmltools::div()]
+ \enumerate{
+  \item head
+  \item left-shoulder
+  \item right-shoulder
+  \item left-arm
+  \item right-arm
+  \item left-hand
+  \item right-hand
+  \item chest
+  \item stomach
+  \item left-leg
+  \item right-lef
+  \item left-foot
+  \item right-foot
+}}
 
-Can be numeric or categorical
-
-  For example
-
-  ```
-  bodyInput(
-    inputId = "human"
-  )
-  ```}
+\item{...}{Passed to \code{htmltools::div()}}
 }
 \value{
 The value returned by the input to the Shiny server is either `NULL`
@@ -29,5 +35,21 @@ The value returned by the input to the Shiny server is either `NULL`
   the selected body part
 }
 \description{
-This input operates like a [shiny::radioButtons()] where you can select one of the body parts!
+This input operates like a \code{shiny::radioButtons()} where you can select one of the body parts!
+}
+\examples{
+\dontrun{
+ui <- function() {
+ fluidPage(
+   bodyInput("human", data = c(10,20,40,60,90,100,25,50,15,20,70,70,30))),
+   verbatimTextOutput("debug")
+ )
+}
+
+server <- function(input, output) {
+ output$debug <- renderText(input$human)
+}
+shinyApp(ui = ui, server = server)
+}
+
 }

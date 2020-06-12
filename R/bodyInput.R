@@ -1,28 +1,50 @@
 #' An SVG Human Body Input
 #'
-#' This input operates like a [shiny::radioButtons()] where you can select one of the body parts!
+#' This input operates like a \code{shiny::radioButtons()} where you can select one of the body parts!
 #'
 #' @import shiny
 #'
 #' @param inputId The input id
-#' @param data a vector of numbers to pass to the input to color body parts by.
-#' @param ... Passed to [htmltools::div()]
+#' @param data a vector of 13 numbers to pass to the input to color body parts by:
 #'
-#' Can be numeric or categorical
+#'  \enumerate{
+#'   \item head
+#'   \item left-shoulder
+#'   \item right-shoulder
+#'   \item left-arm
+#'   \item right-arm
+#'   \item left-hand
+#'   \item right-hand
+#'   \item chest
+#'   \item stomach
+#'   \item left-leg
+#'   \item right-lef
+#'   \item left-foot
+#'   \item right-foot
+#' }
 #'
-#'   For example
-#'
-#'   ```
-#'   bodyInput(
-#'     inputId = "human"
-#'   )
-#'   ```
+#' @param ... Passed to \code{htmltools::div()}
 #'
 #' @return The value returned by the input to the Shiny server is either `NULL`
 #'   when no body part is select or a character string containing
 #'   the selected body part
 #'
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' ui <- function() {
+#'  fluidPage(
+#'    bodyInput("human", data = c(10,20,40,60,90,100,25,50,15,20,70,70,30))),
+#'    verbatimTextOutput("debug")
+#'  )
+#' }
+#'
+#' server <- function(input, output) {
+#'  output$debug <- renderText(input$human)
+#' }
+#' shinyApp(ui = ui, server = server)
+#'}
 #'
 bodyInput <- function(
   inputId,
@@ -31,11 +53,17 @@ bodyInput <- function(
   ...
 ) {
 
-  # need to figure out how to pass the data into the js widget
-  # like send message kind of
-  # then if null just color the body parts black
-  # then have a categorical option
-  # and a continuous option
+  # data do some checks
+  # if categorical
+  # or numeric
+  # maybe even let the user pass in their own color palettes somehow
+  data <- tidyr::tibble(
+    body_part = c("head","left-shoulder","right-shoulder","left-arm","right-arm",
+                  "left-hand","right-hand","chest","stomach","left-leg",
+                  "right-leg","left-foot","right-foot"),
+    values = data
+  )
+
   body_options <- list(
     data = data,
     html =
