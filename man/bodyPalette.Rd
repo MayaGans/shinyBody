@@ -4,7 +4,7 @@
 \alias{bodyPalette}
 \title{Color Generator for the Shiny body input}
 \usage{
-bodyPalette(n, name = c("body.colors"), palette = "Blues")
+bodyPalette(n, name = c("body.colors"), pal = "Blues")
 }
 \arguments{
 \item{n}{vector of values to create colors for}

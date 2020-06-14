@@ -25,6 +25,7 @@
 #' }
 #'
 #'
+#' @param pal using the names from fBasics diverging palette, choose a continuous color scale for your data
 #' @param ... Passed to \code{htmltools::div()}
 #'
 #' @return The value returned by the input to the Shiny server is either `NULL`
@@ -51,6 +52,7 @@
 bodyInput <- function(
   inputId,
   data = NULL,
+  pal = "Blues",
   ...
 ) {
 
@@ -58,7 +60,7 @@ bodyInput <- function(
     data = rep("black", 13)
     # data = c("red", "blue", "green", rep("black", 10))
   } else {
-      data = bodyPalette(data)
+      data = bodyPalette(data, pal = pal)
   }
 
   body_options <- list(

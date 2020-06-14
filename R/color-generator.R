@@ -4,13 +4,13 @@
 #' @param name the name of the color function
 #' @param palette the color palette passed from body-input
 #' @export
-bodyPalette <- function (n, name = c("body.colors")) {
+bodyPalette <- function (n, name = c("body.colors"), pal = "Blues") {
 
   # --------------------------------------------------
   # Create palette using user supplied values
   # Default is blues
   # --------------------------------------------------
-  colors <- fBasics::seqPalette(15, "YlOrRd")[-2]
+  colors <- fBasics::seqPalette(15, pal)
 
   r <- grDevices::col2rgb(colors)[1,]
   g <- grDevices::col2rgb(colors)[2,]

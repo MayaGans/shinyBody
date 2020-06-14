@@ -4,7 +4,7 @@
 \alias{bodyInput}
 \title{An SVG Human Body Input}
 \usage{
-bodyInput(inputId, data = NULL, palette = "Blues", ...)
+bodyInput(inputId, data = NULL, pal = "Blues", ...)
 }
 \arguments{
 \item{inputId}{The input id}
@@ -28,7 +28,7 @@ The numbers correspond to the following body part vector:
   \item right-foot
 }}
 
-\item{palette}{using the names from fBasics diverging palette, choose a continuous color scale for your data}
+\item{pal}{using the names from fBasics diverging palette, choose a continuous color scale for your data}
 
 \item{...}{Passed to \code{htmltools::div()}}
 }
