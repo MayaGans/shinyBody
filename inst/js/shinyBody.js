@@ -1,44 +1,35 @@
-/*
-// when you click a class .part inside a .human-body....
-// but what if you have multiple bodyInputs on a single page?
-$(document).on("click", ".human-body > .part", function(evt) {
-  // stole the closest function from the group button
-  // I think I need to get the id attribute from each svg
- var el = $(this).attr('id')
- // THIS IS WORKING!
- // HOW DO I GET THE ID TO BECOME THE OUTPUT!
- // console.log(el)
-});
-*/
-
 var shinyBodyBinding = new Shiny.InputBinding();
 $.extend(shinyBodyBinding, {
+
+  // find the descendant elements of class "human-body"
+  // and within that class "part"
   find: function find(scope) {
     return $(scope).find(".human-body > .part")
   },
-  // do I need this?
-  // Garrick didn't have it....
-  initialize: function(el){
-     var state = $(el).data("position");
-  },
+
+  // now we set what we want to return when the user calls input$id
   getValue: function getValue(el) {
-    // this is what I want!
-    // How do I get this to become the input$id value!!!!
     var value = $(el).data('position')
+    // this works! why doesn't this show up
+    // I only see NULL
     console.log(value)
     return value
   },
-  setValue: function(el, value) {
-    var $el = el
-    $el.trigger("click");
-  },
-  // wtf is this
+
+
+  // docs show this is a feature thats not even used
+  // setValue: function(el, value) {
+  //  var $el = el
+  //  $el.trigger("click");
+  // },
+
+  // listens for specific events on our component
   subscribe: function(el, callback) {
     $(el).on("click.shinyBodyBinding", function(e) {
       callback();
     });
   },
-  // also this
+
   unsubscribe: function(el) {
     $(el).off(".shinyBodyBinding");
   },
