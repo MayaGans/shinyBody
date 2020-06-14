@@ -23,7 +23,12 @@ $.extend(shinyBodyBinding, {
   //  $el.trigger("click");
   // },
 
-  // listens for specific events on our component
+  // subscribe listens for specific events on our component
+  /* I specified click if click,
+  so why when I first open the app
+  do I see all the parts?
+  Then, as expected, on subsequent clicks
+  I only see the part that was clicked on */
   subscribe: function(el, callback) {
     $(el).on("click.shinyBodyBinding", function(e) {
       callback();
