@@ -2,8 +2,5 @@
 
 export("%>%")
 export(bodyInput)
-export(buttonGroup)
-export(buttonGroupDemo)
-export(updateButtonGroupValue)
 import(shiny)
 importFrom(magrittr,"%>%")

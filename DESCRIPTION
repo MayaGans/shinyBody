@@ -19,5 +19,4 @@ Imports:
     magrittr,
     shiny,
     htmltools,
-    purrr,
     tidyr

@@ -1,3 +1,4 @@
+/*
 // when you click a class .part inside a .human-body....
 // but what if you have multiple bodyInputs on a single page?
 $(document).on("click", ".human-body > .part", function(evt) {
@@ -8,7 +9,7 @@ $(document).on("click", ".human-body > .part", function(evt) {
  // HOW DO I GET THE ID TO BECOME THE OUTPUT!
  // console.log(el)
 });
-
+*/
 
 var shinyBodyBinding = new Shiny.InputBinding();
 $.extend(shinyBodyBinding, {
@@ -17,9 +18,9 @@ $.extend(shinyBodyBinding, {
   },
   // do I need this?
   // Garrick didn't have it....
-  //initialize: function(el){
-  //   var state = $(el).data("position");
-  //},
+  initialize: function(el){
+     var state = $(el).data("position");
+  },
   getValue: function getValue(el) {
     // this is what I want!
     // How do I get this to become the input$id value!!!!
@@ -27,10 +28,10 @@ $.extend(shinyBodyBinding, {
     console.log(value)
     return value
   },
-  //setValue: function(el, value) {
-  //  var $el = el
-  //  $el.trigger("click");
-  //},
+  setValue: function(el, value) {
+    var $el = el
+    $el.trigger("click");
+  },
   // wtf is this
   subscribe: function(el, callback) {
     $(el).on("click.shinyBodyBinding", function(e) {
@@ -49,8 +50,6 @@ $.extend(shinyBodyBinding, {
 });
 
 Shiny.inputBindings.register(shinyBodyBinding, 'shinyBody.bodyInput');
-
-
 
 
 /* NOT SURE WHERE TO PUT THIS BASED ON THE DATA SUPPLIED
