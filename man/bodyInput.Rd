@@ -9,7 +9,8 @@ bodyInput(inputId, data = NULL, ...)
 \arguments{
 \item{inputId}{The input id}
 
-\item{data}{a vector of 13 numbers to pass to the input to color body parts by:
+\item{data}{a vector of 13 numbers to be converted to a continuous color scale.
+The numbers correspond to the following body part vector:
 
  \enumerate{
   \item head

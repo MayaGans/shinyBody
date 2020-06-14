@@ -5,7 +5,8 @@
 #' @import shiny
 #'
 #' @param inputId The input id
-#' @param data a vector of 13 numbers to pass to the input to color body parts by:
+#' @param data a vector of 13 numbers to be converted to a continuous color scale.
+#' The numbers correspond to the following body part vector:
 #'
 #'  \enumerate{
 #'   \item head
@@ -22,6 +23,7 @@
 #'   \item left-foot
 #'   \item right-foot
 #' }
+#'
 #'
 #' @param ... Passed to \code{htmltools::div()}
 #'
@@ -54,9 +56,10 @@ bodyInput <- function(
 ) {
 
   if (is.null(data)) {
-    data = c("red", "blue", "green", rep("black", 10))
+    data = rep("black", 13)
+    # data = c("red", "blue", "green", rep("black", 10))
   } else {
-    # TODO
+      data = bodyPalette(data)
   }
 
   body_options <- list(

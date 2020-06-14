@@ -2,5 +2,6 @@
 
 export("%>%")
 export(bodyInput)
+export(bodyPalette)
 import(shiny)
 importFrom(magrittr,"%>%")
