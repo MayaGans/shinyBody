@@ -17,7 +17,7 @@ $.extend(shinyBodyBinding, {
   },
 
 
-  // docs show this is a feature thats not even used
+  // docs show this is a feature thats not even used...?
   // setValue: function(el, value) {
   //  var $el = el
   //  $el.trigger("click");
@@ -38,11 +38,12 @@ $.extend(shinyBodyBinding, {
   unsubscribe: function(el) {
     $(el).off(".shinyBodyBinding");
   },
-  receiveMessage: function receiveMessage(el, msg) {
+ receiveMessage: function receiveMessage(el, msg) {
     if (msg.value) {
-      shinyBodyBinding.setValue(el, msg.value);
-    }
-  }
+      console.log(msg)
+     shinyBodyBinding.setValue(el, msg.value);
+   }
+ }
 });
 
 Shiny.inputBindings.register(shinyBodyBinding, 'shinyBody.bodyInput');
