@@ -20,4 +20,7 @@ Imports:
     shiny,
     htmltools,
     tidyr,
-    glue
+    glue,
+    fBasics,
+    grDevices,
+    stats

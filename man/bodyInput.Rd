@@ -28,7 +28,7 @@ The numbers correspond to the following body part vector:
   \item right-foot
 }}
 
-\item{pal}{using the names from fBasics diverging palette, choose a continuous color scale for your data}
+\item{pal}{using the names from fBasics::seqPalette, choose a continuous color scale for your data}
 
 \item{...}{Passed to \code{htmltools::div()}}
 }
@@ -44,7 +44,7 @@ This input operates like a \code{shiny::radioButtons()} where you can select one
 \dontrun{
 ui <- function() {
  fluidPage(
-   bodyInput("human", data = c(10,20,40,60,90,100,25,50,15,20,70,70,30))),
+   bodyInput("human", data = c(10,20,40,60,90,100,25,50,15,20,70,70,30), pal = "Blues"),
    verbatimTextOutput("debug")
  )
 }

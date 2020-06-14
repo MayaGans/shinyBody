@@ -11,7 +11,7 @@ bodyPalette(n, name = c("body.colors"), pal = "Blues")
 
 \item{name}{the name of the color function}
 
-\item{palette}{the color palette passed from body-input}
+\item{pal}{the color palette passed from body-input}
 }
 \description{
 Color Generator for the Shiny body input

@@ -25,7 +25,7 @@
 #' }
 #'
 #'
-#' @param pal using the names from fBasics diverging palette, choose a continuous color scale for your data
+#' @param pal using the names from fBasics::seqPalette, choose a continuous color scale for your data
 #' @param ... Passed to \code{htmltools::div()}
 #'
 #' @return The value returned by the input to the Shiny server is either `NULL`
@@ -38,7 +38,7 @@
 #' \dontrun{
 #' ui <- function() {
 #'  fluidPage(
-#'    bodyInput("human", data = c(10,20,40,60,90,100,25,50,15,20,70,70,30))),
+#'    bodyInput("human", data = c(10,20,40,60,90,100,25,50,15,20,70,70,30), pal = "Blues"),
 #'    verbatimTextOutput("debug")
 #'  )
 #' }
