@@ -50,7 +50,6 @@
 #'
 bodyInput <- function(
   inputId,
-  ## this will eventually be a vector to color the body parts by
   data = NULL,
   ...
 ) {

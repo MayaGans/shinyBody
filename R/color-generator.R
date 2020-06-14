@@ -2,6 +2,7 @@
 #'
 #' @param n vector of values to create colors for
 #' @param name the name of the color function
+#' @param palette the color palette passed from body-input
 #' @export
 bodyPalette <- function (n, name = c("body.colors")) {
 
@@ -9,10 +10,10 @@ bodyPalette <- function (n, name = c("body.colors")) {
   # Create palette using user supplied values
   # Default is blues
   # --------------------------------------------------
-  colors <- fBasics::seqPalette(10, "OrRd")
+  colors <- fBasics::seqPalette(15, "YlOrRd")[-2]
 
   r <- grDevices::col2rgb(colors)[1,]
-  g <- grDevices::col2rgb(colors)[2]
+  g <- grDevices::col2rgb(colors)[2,]
   b <- grDevices::col2rgb(colors)[3,]
 
   body.colors = rgb(r,g,b,maxColorValue = 255)
