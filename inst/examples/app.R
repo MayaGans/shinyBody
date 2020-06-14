@@ -9,7 +9,7 @@ ui <- function() {
 }
 
 server <- function(input, output) {
-    output$debug <- renderText(input$human)
+    output$debug <- renderPrint(input$human)
 }
 
 shinyApp(ui = ui, server = server)

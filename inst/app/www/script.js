@@ -1,9 +1,9 @@
 // rather than select on a specifc id
 // we need to select on the user inputid
-// is that all I need to add to the
 $('#human-body').on('click', '.part', (ev) => {
   console.log({id: '#human_body', value: ev.target.id})
   Shiny.setInputValue('human_body', ev.target.id)
+
 })
 
 Shiny.addCustomMessageHandler('body_data', function(color) {
