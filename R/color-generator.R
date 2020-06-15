@@ -2,12 +2,9 @@
 #'
 #' @param n vector of values to create colors for
 #' @param name the name of the color function
-#' @param pal the color palette passed from body-input
+#' @param low.col the color palette passed from body-input
+#' @param high.col the color palette passed from body-input
 #' @export
-bodyPalette <- function (n, pal = "Blues") {
-  colour_palette <- RColorBrewer::brewer.pal(9, pal)
-  fn_colour <- grDevices::colorRampPalette(colour_palette, length(unique(n)))
-  vec <- n
-  print(fn_colour(vec))
-  fn_colour(vec)
+bodyPalette <- function (n, low.col = "#eef4fb", high.col = "#164a85") {
+  attr(color_vctr(n, text_color = color_scale(colorRamp(c(low.col,high.col)))), ".text_color")
 }

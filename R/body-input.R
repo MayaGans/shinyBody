@@ -25,7 +25,8 @@
 #' }
 #'
 #'
-#' @param pal using the names from fBasics::seqPalette, choose a continuous color scale for your data
+#' @param low.col supply the low color to use for your data
+#' @param high.col supply the high color to use for your data
 #' @param color a single fill color for all body parts
 #' @param ... Passed to \code{htmltools::div()}
 #'
@@ -46,7 +47,8 @@
 bodyInput <- function(
   inputId,
   data = NULL,
-  pal = "Blues",
+  low.col = "#eef4fb",
+  high.col = "#164a85",
   color = "Black",
   ...
 ) {
@@ -54,7 +56,7 @@ bodyInput <- function(
   if (is.null(data)) {
     data = rep(color, 13)
   } else {
-      data = bodyPalette(data, pal = pal)
+      data = bodyPalette(data, low.col, high.col)
   }
 
   body_options <- list(
