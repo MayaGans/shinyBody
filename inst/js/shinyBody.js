@@ -1,17 +1,14 @@
 var shinyBodyBinding = new Shiny.InputBinding();
 $.extend(shinyBodyBinding, {
 
-  // find the descendant elements of class "human-body"
-  // and within that class "part"
+  // find the dom element with input$id
   find: function find(scope) {
-    return $(scope).find(".human-body > .part")
+    return $(scope).find(".human-body")
   },
 
   // now we set what we want to return when the user calls input$id
   getValue: function getValue(el) {
-    var value = $(el).data('position')
-    // this works! why doesn't this show up
-    // I only see NULL
+    var value = $(el).find('.selected').data('position')
     console.log(value)
     return value
   },
@@ -31,19 +28,14 @@ $.extend(shinyBodyBinding, {
   I only see the part that was clicked on */
   subscribe: function(el, callback) {
     $(el).on("click.shinyBodyBinding", function(e) {
+      $(document).find(".selected").removeClass("selected");
+      $(el).find('.part').addClass('selected');
       callback();
     });
   },
-
   unsubscribe: function(el) {
     $(el).off(".shinyBodyBinding");
-  },
- receiveMessage: function receiveMessage(el, msg) {
-    if (msg.value) {
-      console.log(msg)
-     shinyBodyBinding.setValue(el, msg.value);
-   }
- }
+  }
 });
 
 Shiny.inputBindings.register(shinyBodyBinding, 'shinyBody.bodyInput');

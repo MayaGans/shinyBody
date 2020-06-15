@@ -1,4 +1,4 @@
-#' An SVG Human Body Input
+#' @title An SVG Human Body Input
 #'
 #' This input operates like a \code{shiny::radioButtons()} where you can select one of the body parts!
 #'
@@ -26,6 +26,7 @@
 #'
 #'
 #' @param pal using the names from fBasics::seqPalette, choose a continuous color scale for your data
+#' @param color a single fill color for all body parts
 #' @param ... Passed to \code{htmltools::div()}
 #'
 #' @return The value returned by the input to the Shiny server is either `NULL`
@@ -36,36 +37,28 @@
 #'
 #' @examples
 #' \dontrun{
-#' ui <- function() {
-#'  fluidPage(
-#'    bodyInput("human", data = c(10,20,40,60,90,100,25,50,15,20,70,70,30), pal = "Blues"),
-#'    verbatimTextOutput("debug")
-#'  )
+#' bodyInput("human", data = c(10,20,40,60,90,100,25,50,15,20,70,70,30), pal = "Blues")
 #' }
-#'
-#' server <- function(input, output) {
-#'  output$debug <- renderText(input$human)
+#' \dontrun{
+#' bodyInput("human", color = "steelblue")
 #' }
-#' shinyApp(ui = ui, server = server)
-#'}
-#'
+
 bodyInput <- function(
   inputId,
   data = NULL,
   pal = "Blues",
+  color = "Black",
   ...
 ) {
 
   if (is.null(data)) {
-    data = rep("black", 13)
-    # data = c("red", "blue", "green", rep("black", 10))
+    data = rep(color, 13)
   } else {
       data = bodyPalette(data, pal = pal)
   }
 
   body_options <- list(
     html =
-      div( style = "width:200px;height:200px;",
         HTML(glue::glue(
           "<svg class='part head' fill='{data[1]}' data-position='head' id='head' class='head' xmlns='http://www.w3.org/2000/svg' width='56.594' height='95.031' viewBox='0 0 56.594 95.031'>
             <path id='head' class='head' d='M15.92 68.5l8.8 12.546 3.97 13.984-9.254-7.38-4.622-15.848zm27.1 0l-8.8 12.546-3.976 13.988 9.254-7.38 4.622-15.848zm6.11-27.775l.108-11.775-21.16-14.742L8.123 26.133 8.09 40.19l-3.24.215 1.462 9.732 5.208 1.81 2.36 11.63 9.72 11.018 10.856-.324 9.56-10.37 1.918-11.952 5.207-1.81 1.342-9.517zm-43.085-1.84l-.257-13.82L28.226 11.9l23.618 15.755-.216 10.37 4.976-17.085L42.556 2.376 25.49 0 10.803 3.673.002 24.415z'/>
@@ -107,7 +100,6 @@ bodyInput <- function(
             <path id='right-foot' d='m 11.723492,2.35897 c -40.202667,20.558 -20.1013335,10.279 0,0 z m -5.9740005,5.989 0.663,18.415 1.546,6.435 4.6480005,0 1.328,-4.437 1.55,-0.222 -0.333,4.437 5.863,-1.778 1.55,-0.887 6.638,-1.442 0.222,-5.214 -6.418,-10.868 -4.426,-5.547 -10.8440005,-4.437 z'/>
             </svg>"
         ))
-      )
   )
 
   htmltools::tagList(

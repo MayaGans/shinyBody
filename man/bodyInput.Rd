@@ -2,9 +2,11 @@
 % Please edit documentation in R/body-input.R
 \name{bodyInput}
 \alias{bodyInput}
-\title{An SVG Human Body Input}
+\title{An SVG Human Body Input
+
+This input operates like a \code{shiny::radioButtons()} where you can select one of the body parts!}
 \usage{
-bodyInput(inputId, data = NULL, pal = "Blues", ...)
+bodyInput(inputId, data = NULL, pal = "Blues", color = "Black", ...)
 }
 \arguments{
 \item{inputId}{The input id}
@@ -30,6 +32,8 @@ The numbers correspond to the following body part vector:
 
 \item{pal}{using the names from fBasics::seqPalette, choose a continuous color scale for your data}
 
+\item{color}{a single fill color for all body parts}
+
 \item{...}{Passed to \code{htmltools::div()}}
 }
 \value{
@@ -38,21 +42,15 @@ The value returned by the input to the Shiny server is either `NULL`
   the selected body part
 }
 \description{
+An SVG Human Body Input
+
 This input operates like a \code{shiny::radioButtons()} where you can select one of the body parts!
 }
 \examples{
 \dontrun{
-ui <- function() {
- fluidPage(
-   bodyInput("human", data = c(10,20,40,60,90,100,25,50,15,20,70,70,30), pal = "Blues"),
-   verbatimTextOutput("debug")
- )
+bodyInput("human", data = c(10,20,40,60,90,100,25,50,15,20,70,70,30), pal = "Blues")
 }
-
-server <- function(input, output) {
- output$debug <- renderText(input$human)
+\dontrun{
+bodyInput("human", color = "steelblue")
 }
-shinyApp(ui = ui, server = server)
-}
-
 }
