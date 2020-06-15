@@ -5,7 +5,7 @@ ui <- function() {
 
     fluidPage(
         bodyInput("human",
-                  data = c(10,20,40,60,90,100,25,50,15,20,70,70,30),
+                  data = c(30,20,40,60,90,100,25,50,40,20,70,70,30),
                   pal = "Blues"),
         verbatimTextOutput("debug")
     )

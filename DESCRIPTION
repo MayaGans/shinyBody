@@ -23,4 +23,5 @@ Imports:
     glue,
     fBasics,
     grDevices,
-    stats
+    stats,
+    RColorBrewer

@@ -7,7 +7,7 @@ $.extend(shinyBodyBinding, {
     return $(scope).find(".human-body")
   },
 
-  // get the data position of the element with class selected
+  // get the data-anatomy of the element with class selected
   // use this as the input's value
   // SEE subscribe
   getValue: function getValue(el) {

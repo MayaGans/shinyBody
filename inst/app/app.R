@@ -13,7 +13,7 @@ human_data <- data.frame(body_part = c("head",
                                        "right-leg",
                                        "left-foot",
                                        "right-foot"),
-                         values = c(10,20,40,60,90,100,25,50,15,20,70,70,30))
+                         values = c(40,20,40,60,90,100,25,50,15,20,70,70,30))
 
 
 
