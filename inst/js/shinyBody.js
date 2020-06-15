@@ -6,32 +6,27 @@ $.extend(shinyBodyBinding, {
     return $(scope).find(".human-body")
   },
 
-  // now we set what we want to return when the user calls input$id
+  // get the data position of the element with class selected
+  // use this as the input's value
+  // SEE subscribe
   getValue: function getValue(el) {
     var value = $(el).find('.selected').data('position')
     console.log(value)
     return value
   },
 
-
-  // docs show this is a feature thats not even used...?
-  // setValue: function(el, value) {
-  //  var $el = el
-  //  $el.trigger("click");
-  // },
-
-  // subscribe listens for specific events on our component
-  /* I specified click if click,
-  so why when I first open the app
-  do I see all the parts?
-  Then, as expected, on subsequent clicks
-  I only see the part that was clicked on */
+  // on click, remove any previous selected classes
+  // then add the selected class to the clicked limb
+  // this is used in getValue
   subscribe: function(el, callback) {
-    $(el).on("click.shinyBodyBinding", function(e) {
-      $(document).find(".selected").removeClass("selected");
-      $(el).find('.part').addClass('selected');
+    $(el).on("click.shinyBodyBinding", function(evt) {
+      // remove all of the selected classes inside our element
+      $(el).find(".selected").removeClass("selected");
+      // set the selected class to the closest clicked part
+      console.log($(evt.target).attr('id'))
+      $(evt.target).addClass('selected');
       callback();
-    });
+    })
   },
   unsubscribe: function(el) {
     $(el).off(".shinyBodyBinding");
