@@ -33,39 +33,13 @@ new_color_vctr <- function(vect, text_color = NA, background = NA, style = NA ){
   )
 }
 
-
 color_vctr <- function(x,..., text_color = NA, background = NA, style = NA){
-  UseMethod("color_vctr",x)
-}
-
-#' @export
-color_vctr.default <- function(x,...,text_color = NA, background = NA, style = NA) {
   new_color_vctr(
     x,
     text_color = text_color,
     background = background,
     style = style
   )
-}
-
-color_vctr.color_vctr <- function(x,...){
-
-  coltable_nect_list <- list(x,...)
-
-  vect <- do.call('c', lapply(coltable_nect_list, function(z) {
-    .subset(z, seq_along(z))
-  }))
-
-  text_color <- do.call('c', lapply(coltable_nect_list, vctrs::field, ".text_color"))
-  background <- do.call('c', lapply(coltable_nect_list, vctrs::field, ".background"))
-  style      <- do.call('c', lapply(coltable_nect_list, vctrs::field, ".style"))
-
-  return(new_color_vctr(
-    vect,
-    text_color = text_color,
-    background = background,
-    style = style
-  ))
 }
 
 color_scale <- function(palette, na.color = "#808080") {
@@ -86,7 +60,6 @@ color_scale <- function(palette, na.color = "#808080") {
     color_scaler(x)
   }
 }
-
 
 scale_col_type <- function(x) {
   ifelse(
