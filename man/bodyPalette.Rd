@@ -4,14 +4,14 @@
 \alias{bodyPalette}
 \title{Color Generator for the Shiny body input}
 \usage{
-bodyPalette(n, pal = "Blues")
+bodyPalette(n, low.col = "#eef4fb", high.col = "#164a85")
 }
 \arguments{
 \item{n}{vector of values to create colors for}
 
-\item{pal}{the color palette passed from body-input}
+\item{low.col}{the color palette passed from body-input}
 
-\item{name}{the name of the color function}
+\item{high.col}{the color palette passed from body-input}
 }
 \description{
 Color Generator for the Shiny body input

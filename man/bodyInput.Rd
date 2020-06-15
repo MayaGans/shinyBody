@@ -6,7 +6,14 @@
 
 This input operates like a \code{shiny::radioButtons()} where you can select one of the body parts!}
 \usage{
-bodyInput(inputId, data = NULL, pal = "Blues", color = "Black", ...)
+bodyInput(
+  inputId,
+  data = NULL,
+  low.col = "#eef4fb",
+  high.col = "#164a85",
+  color = "Black",
+  ...
+)
 }
 \arguments{
 \item{inputId}{The input id}
@@ -30,7 +37,9 @@ The numbers correspond to the following body part vector:
   \item right-foot
 }}
 
-\item{pal}{using the names from fBasics::seqPalette, choose a continuous color scale for your data}
+\item{low.col}{supply the low color to use for your data}
+
+\item{high.col}{supply the high color to use for your data}
 
 \item{color}{a single fill color for all body parts}
 

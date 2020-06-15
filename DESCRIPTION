@@ -24,4 +24,6 @@ Imports:
     fBasics,
     grDevices,
     stats,
-    RColorBrewer
+    RColorBrewer,
+    scales,
+    vctrs
