@@ -109,7 +109,7 @@ bodyInput <- function(
       name    = "shinyBody",
       version = utils::packageVersion("shinyBody"),
       package = "shinyBody",
-      src     = "js"
+      src     = "js",
       script  = "shinyBody.js",
       stylesheet = "styles.css"
     ),

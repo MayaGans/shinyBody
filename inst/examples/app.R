@@ -5,8 +5,7 @@ ui <- function() {
 
     fluidPage(
         bodyInput("human",
-                  data = c(30,20,40,60,90,100,14,50,40,20,70,70,30),
-                  low.col = "pink", high.col = "purple"),
+                  data = c(rnorm(13, 100))),
         verbatimTextOutput("debug")
     )
 }
