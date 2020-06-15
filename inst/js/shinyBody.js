@@ -23,7 +23,7 @@ $.extend(shinyBodyBinding, {
       // remove all of the selected classes inside our element
       $(el).find(".selected").removeClass("selected");
       // set the selected class to the closest clicked part
-      console.log($(evt.target).attr('id'))
+      //console.log($(evt.target).attr('id'))
       $(evt.target).addClass('selected');
       callback();
     })
