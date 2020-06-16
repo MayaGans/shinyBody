@@ -37,9 +37,9 @@ The numbers correspond to the following body part vector:
   \item right-foot
 }}
 
-\item{low.col}{supply the low color to use for your data}
+\item{low.col}{continous color scale applied to data - this is the high vale color}
 
-\item{high.col}{supply the high color to use for your data}
+\item{high.col}{continous color scale applied to data - this is the high value color}
 
 \item{color}{a single fill color for all body parts}
 
@@ -57,7 +57,7 @@ This input operates like a \code{shiny::radioButtons()} where you can select one
 }
 \examples{
 \dontrun{
-bodyInput("human", data = c(10,20,40,60,90,100,25,50,15,20,70,70,30), pal = "Blues")
+bodyInput("human", data = rnorm(13, 100), low.col = "pink", high.col = "purple")
 }
 \dontrun{
 bodyInput("human", color = "steelblue")

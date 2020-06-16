@@ -4,9 +4,13 @@ library(shiny)
 ui <- function() {
 
     fluidPage(
-        bodyInput("human",
-                  data = c(rnorm(13, 100))),
-        verbatimTextOutput("debug")
+        sidebarPanel(
+            bodyInput("human", data = c(rnorm(13, 100))),
+            textInput("test", "test")
+        ),
+        mainPanel(
+            verbatimTextOutput("debug")
+        )
     )
 }
 

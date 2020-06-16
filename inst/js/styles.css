@@ -1,10 +1,7 @@
 .human-body {
-width: 207px;
 position: relative;
-padding-top: 240px;
-height: 260px;
-display: block;
-margin: 40px auto;
+height: 500px;
+width: 230px;
 }
 
 .human-body svg:hover {
@@ -22,69 +19,69 @@ left: 50%;
 
 .human-body svg#head {
 margin-left: -28.5px;
-top: -6px;
+top: 3px;
 }
 
 .human-body svg#left-shoulder {
 margin-left: -53.5px;
-top: 69px;
+top: 73px;
 }
 
 .human-body svg#right-shoulder {
 margin-left: 13.5px;
-top: 69px;
+top: 73px;
 }
 
 .human-body svg#left-arm {
 margin-left: -78px;
-top: 112px;
+top: 115px;
 }
 
 .human-body svg#right-arm {
 margin-left: 38px;
-top: 112px;
+top: 115px;
 }
 
 .human-body svg#chest {
 margin-left: -43.5px;
-top: 88px;
+top: 93px;
 }
 
 .human-body svg#stomach {
 margin-left: -37.5px;
-top: 130px;
+top: 133px;
 }
 
 .human-body svg#left-leg {
 margin-left: -46.5px;
-top: 205px;
+top: 207px;
 z-index: 9999;
 }
 
 .human-body svg#right-leg {
 margin-left: 1.5px;
-top: 205px;
+top: 207px;
 z-index: 9999;
 }
 
 .human-body svg#left-hand {
 margin-left: -102.5px;
-top: 224px;
+top: 226px;
 }
 
 .human-body svg#right-hand {
 margin-left: 66.5px;
-top: 224px;
+top: 226px;
 }
 
 .human-body svg#left-foot {
 margin-left: -35.5px;
-top: 455px;
+top: 457px;
 }
 
 .human-body svg#right-foot {
 margin-left: 5.5px;
-top: 455px;
+top: 457px;
 }
 
 #area {
