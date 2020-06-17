@@ -125,10 +125,3 @@ bodyInput <- function(
   )
 
 }
-
-
-# ----------------------------------------------------------------------
-# Let the user update the body part from the server side
-# like updateButtonGroupValue
-# ----------------------------------------------------------------------
-

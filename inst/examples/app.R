@@ -1,16 +1,16 @@
+
+
 # Example of shinyBody Shiny Input
 library(shiny)
 
 ui <- function() {
 
     fluidPage(
-        sidebarPanel(
-            bodyInput("human", data = c(rnorm(13, 100))),
-            textInput("test", "test")
-        ),
-        mainPanel(
+            bodyInput("human",
+                      data = c(rnorm(13, 100)),
+                      low.col = "#800000",
+                      high.col = "#ffe8e8"),
             verbatimTextOutput("debug")
-        )
     )
 }
 
