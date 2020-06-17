@@ -2,6 +2,7 @@
 
 # Example of shinyBody Shiny Input
 library(shiny)
+library(shinyBody)
 
 ui <- function() {
 
